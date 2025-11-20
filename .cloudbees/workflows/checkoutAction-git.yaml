@@ -29,7 +29,7 @@ jobs:
         id: checkout2
         with:
           provider: github
-          repository: cbp-test-QA-automation/QA-momento-go-sample
+          repository: test-cdro-qa/qa-momento-go-sample
           ref: v1.0.0
         env:
           RUNNER_DEBUG: "1"
@@ -40,13 +40,13 @@ jobs:
           echo "Commit 2:"
           echo "Inputs:"
           echo "  provider: github"
-          echo "  repository: cbp-test-QA-automation/QA-momento-go-sample"
+          echo "  repository: test-cdro-qa/qa-momento-go-sample"
           echo "  ref v1.0.0"
           echo Repository URL = ${{ steps.checkout2.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout2.outputs.commit }}
           echo Commit URL = ${{ steps.checkout2.outputs.commit-url }}
           echo Ref = ${{ steps.checkout2.outputs.ref }}
-          echo "Date: 2025-11-18T08:48:12.519Z"
+          echo "Date: 2025-11-20T12:56:55.318Z"
           if [ "${{ steps.checkout2.outputs.ref }}" = "v1.0.0" ]; then echo "Ref variables match, continue..."; else echo "Ref references do not match, exiting."; exit 0; fi
   github-anotherrepo-ref:
     steps:
@@ -55,8 +55,8 @@ jobs:
         id: checkout3
         with:
           provider: github
-          repository: cbp-test-QA-automation/qa-python-hello-World
-          ref: 338333e039e6324ba91b4db3814055a5955a4bbd
+          repository: test-cdro-qa/qa-python-hello-world
+          ref: c415508d78c1cabb4f4e2ff2e1016752b8dc8c57
         env:
           RUNNER_DEBUG: "1"
       - name: Commit3
@@ -66,11 +66,11 @@ jobs:
           echo "Commit 3:"
           echo "Inputs:"
           echo "  provider: github"
-          echo "  repository: cbp-test-QA-automation/qa-python-hello-World"
-          echo "  ref 338333e039e6324ba91b4db3814055a5955a4bbd"
+          echo "  repository: test-cdro-qa/qa-python-hello-world"
+          echo "  ref c415508d78c1cabb4f4e2ff2e1016752b8dc8c57"
           echo Repository URL = ${{ steps.checkout3.outputs.repository-url }}
           echo Commit ID = ${{ steps.checkout3.outputs.commit }}
           echo Commit URL = ${{ steps.checkout3.outputs.commit-url }}
           echo Ref = ${{ steps.checkout3.outputs.ref }}
-          if [ "${{ steps.checkout3.outputs.commit }}" = "338333e039e6324ba91b4db3814055a5955a4bbd" ]; then echo "Commits are same"; else echo "Commit details dees not match, exiting."; exit 0; fi
+          if [ "${{ steps.checkout3.outputs.commit }}" = "c415508d78c1cabb4f4e2ff2e1016752b8dc8c57" ]; then echo "Commits are same"; else echo "Commit details dees not match, exiting."; exit 0; fi
   
