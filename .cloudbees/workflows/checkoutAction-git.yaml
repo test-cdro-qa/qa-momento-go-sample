@@ -46,7 +46,7 @@ jobs:
           echo Commit ID = ${{ steps.checkout2.outputs.commit }}
           echo Commit URL = ${{ steps.checkout2.outputs.commit-url }}
           echo Ref = ${{ steps.checkout2.outputs.ref }}
-          echo "Date: 2026-01-09T10:34:14.947Z"
+          echo "Date: 2026-01-09T12:22:51.765Z"
           if [ "${{ steps.checkout2.outputs.ref }}" = "v1.0.0" ]; then echo "Ref variables match, continue..."; else echo "Ref references do not match, exiting."; exit 0; fi
   github-anotherrepo-ref:
     steps:
