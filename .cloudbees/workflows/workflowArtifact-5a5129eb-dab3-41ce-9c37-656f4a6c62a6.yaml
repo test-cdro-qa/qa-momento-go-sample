@@ -1,0 +1,14 @@
+
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: publishEvidenceItem
+on:
+  workflow_dispatch:
+jobs:
+  publishEvidenceItemJob:
+    timeout-minutes: 3
+    steps:
+    - name: Publish Workflow Evidence Item
+      uses: cloudbees-io/publish-evidence-item@v1
+      with:
+        content: 5a5129eb-dab3-41ce-9c37-656f4a6c62a6
