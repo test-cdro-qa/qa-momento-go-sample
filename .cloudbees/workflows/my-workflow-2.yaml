@@ -24,7 +24,7 @@ jobs:
 
       - name: Check for existing open PR
         id: pr_check
-        if: ${{ steps.spec_check.outputs.spec_changed == 'true' }}
+        if: ${{ steps.spec_check.outputs.spec_changed }}
         uses: docker://alpine:3.19
         shell: sh
         run: |
