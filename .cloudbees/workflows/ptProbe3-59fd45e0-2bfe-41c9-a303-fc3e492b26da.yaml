@@ -1,0 +1,13 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: pending_tasks_probe
+on:
+  workflow_dispatch:
+jobs:
+  ask-0:
+    delegates: cloudbees-io/manual-approval/custom-job.yml@v1
+    timeout-minutes: 25
+    with:
+      instructions: probe job 0
+      approvers: ce19a514-7c3b-11f0-9922-42010a83ae54
+      debug: true
