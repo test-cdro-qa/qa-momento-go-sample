@@ -1,0 +1,13 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: pt_CaseBneg
+on:
+  workflow_dispatch:
+jobs:
+  ask-now:
+    delegates: cloudbees-io/manual-approval/custom-job.yml@v1
+    timeout-minutes: 25
+    with:
+      instructions: "CaseBneg probe"
+      approvers: "AutoTest.f78feaa3-038b-4a37-8bf0-7281e44fc40e.EmptyTeam"
+      debug: true
