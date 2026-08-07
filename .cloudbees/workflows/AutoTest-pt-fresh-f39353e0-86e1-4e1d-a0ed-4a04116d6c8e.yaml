@@ -1,0 +1,14 @@
+
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: manual_approval
+on:
+  workflow_dispatch:
+jobs:
+  ask-now:
+    delegates: cloudbees-io/manual-approval/custom-job.yml@v1
+    timeout-minutes: 15
+    with:
+      instructions: Approve or reject this manual approval task.
+      approvers:  AutoTest.82c78598-b19d-4619-bffa-42273b99c967.PendingTasksFresh
+      debug: true
