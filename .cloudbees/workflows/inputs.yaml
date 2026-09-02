@@ -32,5 +32,5 @@ jobs:
         run: |
           echo $(date +"%Y_%m_%d_%H_%M_%S")
           echo $(date +"%Y_%m_%d_%H_%M_%S") > "$CLOUDBEES_OUTPUTS/name"
-          ${{ inputs.run_id == 'empty' && 'A' || ${{ cloudbees.run_id }} }}
+          echo ${{ inputs.run_id == '' && 'A' || cloudbees.run_id }}
           
