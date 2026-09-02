@@ -15,7 +15,7 @@ on:
         required: true
       run_id:
         type: string
-        default: empty
+        default: ''
         required: true
      
 
