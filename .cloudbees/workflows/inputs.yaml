@@ -1,0 +1,36 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: My workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        type: choice
+        options:
+        - QA
+        - PROD
+        - PREPROD
+        default: QA
+        required: true
+      run_id:
+        type: string
+        default: empty
+        required: true
+     
+
+
+jobs:
+  codecheck:
+    outputs:
+      timestamp: ${{ steps.date.outputs.name }}
+    steps:
+      - name: Get timestamp
+        uses: docker://golang:1.20.3-alpine3.17
+        id: date
+        shell: sh
+        run: |
+          echo $(date +"%Y_%m_%d_%H_%M_%S")
+          echo $(date +"%Y_%m_%d_%H_%M_%S") > "$CLOUDBEES_OUTPUTS/name"
+          ${{ inputs.run_id == 'empty' && 'A' || ${{ cloudbees.run_id }} }}
+          
